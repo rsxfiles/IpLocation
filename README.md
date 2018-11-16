@@ -4,5 +4,9 @@ This project contains an Ip lookpup geolocation who get the data from the APIs: 
 ## Features
 
 * Desktop Application
-* Comes with .NET Windows Form 
-* You must to use an IP real on internet. 
+* Comes with .NET Windows Form.
+* You must to use a Real IP on internet.
+* Save data to CSV file.
+* Load data from CSV file.
+* Geolocation on Google maps.
+* APIs: https://extreme-ip-lookup.com and https://countryflags.io/
