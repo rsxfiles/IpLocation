@@ -5,7 +5,7 @@ This project contains an Ip lookpup geolocation who get the data from the APIs: 
 
 * Desktop Application
 * Comes with .NET Windows Form.
-* You must to use a Real IP on internet.
+* You must use a Real IP on internet.
 * Save data to CSV file.
 * Load data from CSV file.
 * Geolocation on Google maps.
