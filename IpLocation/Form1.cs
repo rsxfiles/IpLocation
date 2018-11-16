@@ -48,8 +48,6 @@ namespace IpLocation
 
             //Update Map
             if (res.lon != "" & res.lat!="") gMapControl.Position = new PointLatLng(double.Parse(res.lat), double.Parse(res.lon));
-     
-   
         }
 
         public void LoadCSV()
@@ -97,13 +95,9 @@ namespace IpLocation
             Close();
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmIpLookup_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             // Load the information about your IP 
             try
             {
@@ -116,6 +110,7 @@ namespace IpLocation
             {
                 MessageBox.Show(err.Message);
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -127,14 +122,8 @@ namespace IpLocation
             Cursor.Current = Cursors.Default;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
             _listGridview.Add(this._result);
             dgvFile.DataSource = null;
             dgvFile.DataSource = this._listGridview;
@@ -158,6 +147,7 @@ namespace IpLocation
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (this.dgvFile.Rows.Count > 0)
             {
                 using (var parser = new ChoCSVWriter("data.csv"))
@@ -165,6 +155,7 @@ namespace IpLocation
                     parser.Write(this._listGridview);
                 }
             }
+            Cursor.Current = Cursors.Default;
         }
     }
 }

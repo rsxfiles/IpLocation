@@ -206,7 +206,6 @@
             this.label7.Size = new System.Drawing.Size(40, 21);
             this.label7.TabIndex = 10;
             this.label7.Text = "ISP: ";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -464,7 +463,7 @@
             this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFile.Size = new System.Drawing.Size(701, 164);
             this.dgvFile.TabIndex = 37;
-            this.dgvFile.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+ 
             // 
             // button1
             // 
