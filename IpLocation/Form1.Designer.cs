@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIpLookup));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.txtIp = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -61,14 +62,14 @@
             this.lblIsp = new System.Windows.Forms.Label();
             this.lblIpName = new System.Windows.Forms.Label();
             this.picFlag = new System.Windows.Forms.PictureBox();
-            this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.dgvFile = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFlag)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFile)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,19 +80,46 @@
             this.panel1.Size = new System.Drawing.Size(504, 200);
             this.panel1.TabIndex = 0;
             // 
+            // gMapControl
+            // 
+            this.gMapControl.Bearing = 0F;
+            this.gMapControl.CanDragMap = true;
+            this.gMapControl.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gMapControl.GrayScaleMode = false;
+            this.gMapControl.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gMapControl.LevelsKeepInMemmory = 5;
+            this.gMapControl.Location = new System.Drawing.Point(0, 0);
+            this.gMapControl.MarkersEnabled = true;
+            this.gMapControl.MaxZoom = 2;
+            this.gMapControl.MinZoom = 2;
+            this.gMapControl.MouseWheelZoomEnabled = true;
+            this.gMapControl.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gMapControl.Name = "gMapControl";
+            this.gMapControl.NegativeMode = false;
+            this.gMapControl.PolygonsEnabled = true;
+            this.gMapControl.RetryLoadTile = 0;
+            this.gMapControl.RoutesEnabled = true;
+            this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gMapControl.ShowTileGridLines = false;
+            this.gMapControl.Size = new System.Drawing.Size(501, 199);
+            this.gMapControl.TabIndex = 32;
+            this.gMapControl.Zoom = 0D;
+            // 
             // txtIp
             // 
             this.txtIp.Location = new System.Drawing.Point(103, 93);
             this.txtIp.Name = "txtIp";
             this.txtIp.Size = new System.Drawing.Size(161, 27);
             this.txtIp.TabIndex = 1;
+            this.txtIp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(24, 19);
+            this.label1.Location = new System.Drawing.Point(26, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(316, 33);
             this.label1.TabIndex = 2;
@@ -102,7 +130,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.Silver;
-            this.btnSearch.Location = new System.Drawing.Point(282, 88);
+            this.btnSearch.Location = new System.Drawing.Point(309, 89);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(118, 36);
             this.btnSearch.TabIndex = 3;
@@ -277,7 +305,7 @@
             // 
             this.lblWebsite.AutoSize = true;
             this.lblWebsite.ForeColor = System.Drawing.Color.Silver;
-            this.lblWebsite.Location = new System.Drawing.Point(130, 250);
+            this.lblWebsite.Location = new System.Drawing.Point(134, 247);
             this.lblWebsite.Name = "lblWebsite";
             this.lblWebsite.Size = new System.Drawing.Size(76, 21);
             this.lblWebsite.TabIndex = 21;
@@ -377,91 +405,90 @@
             // 
             this.picFlag.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picFlag.ErrorImage = ((System.Drawing.Image)(resources.GetObject("picFlag.ErrorImage")));
-            this.picFlag.Location = new System.Drawing.Point(722, 37);
+            this.picFlag.Location = new System.Drawing.Point(722, 35);
             this.picFlag.Name = "picFlag";
             this.picFlag.Size = new System.Drawing.Size(110, 99);
             this.picFlag.TabIndex = 31;
             this.picFlag.TabStop = false;
             // 
-            // gMapControl
+            // btnAdd
             // 
-            this.gMapControl.Bearing = 0F;
-            this.gMapControl.CanDragMap = true;
-            this.gMapControl.EmptyTileColor = System.Drawing.Color.Navy;
-            this.gMapControl.GrayScaleMode = false;
-            this.gMapControl.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            this.gMapControl.LevelsKeepInMemmory = 5;
-            this.gMapControl.Location = new System.Drawing.Point(0, 0);
-            this.gMapControl.MarkersEnabled = true;
-            this.gMapControl.MaxZoom = 2;
-            this.gMapControl.MinZoom = 2;
-            this.gMapControl.MouseWheelZoomEnabled = true;
-            this.gMapControl.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
-            this.gMapControl.Name = "gMapControl";
-            this.gMapControl.NegativeMode = false;
-            this.gMapControl.PolygonsEnabled = true;
-            this.gMapControl.RetryLoadTile = 0;
-            this.gMapControl.RoutesEnabled = true;
-            this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.gMapControl.ShowTileGridLines = false;
-            this.gMapControl.Size = new System.Drawing.Size(501, 199);
-            this.gMapControl.TabIndex = 32;
-            this.gMapControl.Zoom = 0D;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.Green;
+            this.btnAdd.Location = new System.Drawing.Point(32, 88);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(60, 36);
+            this.btnAdd.TabIndex = 33;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // dataGridView1
+            // btnDel
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(118, 492);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(714, 165);
-            this.dataGridView1.TabIndex = 32;
+            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDel.Location = new System.Drawing.Point(32, 495);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(70, 36);
+            this.btnDel.TabIndex = 34;
+            this.btnDel.Text = "Del";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Silver;
+            this.btnSave.Location = new System.Drawing.Point(30, 555);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(70, 36);
+            this.btnSave.TabIndex = 35;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // dgvFile
+            // 
+            this.dgvFile.AllowUserToAddRows = false;
+            this.dgvFile.AllowUserToDeleteRows = false;
+            this.dgvFile.AllowUserToOrderColumns = true;
+            this.dgvFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvFile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFile.Location = new System.Drawing.Point(131, 492);
+            this.dgvFile.MultiSelect = false;
+            this.dgvFile.Name = "dgvFile";
+            this.dgvFile.ReadOnly = true;
+            this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFile.Size = new System.Drawing.Size(701, 164);
+            this.dgvFile.TabIndex = 37;
+            this.dgvFile.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(26, 89);
+            this.button1.ForeColor = System.Drawing.Color.Silver;
+            this.button1.Location = new System.Drawing.Point(264, 93);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 36);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Add";
+            this.button1.Size = new System.Drawing.Size(24, 27);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(32, 531);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(70, 36);
-            this.button3.TabIndex = 34;
-            this.button3.Text = "Del";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Silver;
-            this.button4.Location = new System.Drawing.Point(32, 590);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(70, 36);
-            this.button4.TabIndex = 35;
-            this.button4.Text = "Save";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmIpLookup
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(862, 685);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvFile);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnDel);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.picFlag);
             this.Controls.Add(this.lblOrganization);
             this.Controls.Add(this.lblIsp);
@@ -503,7 +530,7 @@
             this.Load += new System.EventHandler(this.frmIpLookup_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picFlag)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -544,10 +571,11 @@
         private System.Windows.Forms.Label lblIpName;
         private System.Windows.Forms.PictureBox picFlag;
         private GMap.NET.WindowsForms.GMapControl gMapControl;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridView dgvFile;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
     }
 }
 
